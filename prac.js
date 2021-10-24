@@ -1,29 +1,47 @@
 "use strict"
-// ----------------ARRAYS-----------
-let mixed=[1,2,3,'strings',null,undefined];
-console.log(mixed)
-console.log(Array.isArray(mixed))
-mixed.push('yoyy')
-mixed.pop()
-mixed.unshift('banana')
-mixed.shift();
-let arr=mixed.slice(0);
-let arr2=[].concat(arr)
-let arr3=[...arr]
-arr.pop()
-console.log(mixed);
-console.log(arr);
-console.log(arr2);
-// --------
-// for of loop
-for(let i of mixed){
-console.log(i);
+// ---------------OBJECTS-----------------------
+// object has key as sting and symbol only 
+const person={
+    firstName:'Mohammad',
+    lastName : 'Ibrahim',
+    age:20,
+    "college":'SNIST'
+};
+person.gender='male';
+person['song']='bella ciao'
+console.log(person['college']);
+console.log(person.firstName);
+console.log(person)
+// ----------------
+for(let key in person){
+    console.log(person[key])
 }
-// for in loops
-for(let i in mixed){
-    console.log(i)
+console.log(Object.keys(person))
+
+for(let i of Object.keys(person)){
+    console.log(i,person[i])
 }
-// --===
-let [one,two]=mixed;
-console.log(one)
-console.log(two)
+// ----------
+const arrr=[..."persin"]
+const newObj={..." abcdefghij",69:'yoyo' }
+console.log(arrr)
+// -----object destructuring
+const {firstName:myname,age,...rest}=person;
+console.log(myname);
+console.log(rest);
+// --------------------------
+// objects in arrays
+const users=[{
+    firstName:'Mohammad',
+    lastName : 'Ibrahim',
+    age:20,
+    "college":'SNIST'
+},{
+    firstName:'yoyo',
+    lastName : 'honey',
+    age:47,
+    "college":'SNISTyo'
+}]
+const [{firstName:myname1,age1,college},{college:college1}]=users;
+console.log(myname1)
+console.log(college1)
