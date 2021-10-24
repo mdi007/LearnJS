@@ -1,47 +1,72 @@
 "use strict"
-// ---------------OBJECTS-----------------------
-// object has key as sting and symbol only 
+// -------------FUNCTIONS------------
+function hello(){
+    return 'yoyoyyoyo'
+}
+console.log(hello())
+
+const sum=function(n1,n2){return n1+n2}
+console.log(sum(2,3))
+const sum1=(n1,n2)=>{return n1+n2}
+console.log(sum1(2,3))
+const yo=n=>{console.log(n)}
+yo('yoyyyyyo')
+const iseven=n=>n%2===0;
+const mul=(n1,n2)=>n1*n2;
+console.log(iseven(4))
+console.log(mul(4,5))
+// ------lexical scope--
+const myv='value1'
+{
+function mya(){
+    // const myv='v2'
+    function mya1(){
+        const myv='v2';
+        console.log('inside mya1',myv);
+    }
+    mya1();
+    console.log(myv);
+}
+
+mya()
+}
+// -------------------
+// let and const is block scope
+// var is a function scope
 const person={
     firstName:'Mohammad',
     lastName : 'Ibrahim',
     age:20,
     "college":'SNIST'
 };
-person.gender='male';
-person['song']='bella ciao'
-console.log(person['college']);
-console.log(person.firstName);
-console.log(person)
-// ----------------
-for(let key in person){
-    console.log(person[key])
-}
-console.log(Object.keys(person))
-
-for(let i of Object.keys(person)){
-    console.log(i,person[i])
-}
+function add(a,b=0){return a+b}
+console.log(add(4))
+const a=[1,2,3,4,5,6]
 // ----------
-const arrr=[..."persin"]
-const newObj={..." abcdefghij",69:'yoyo' }
-console.log(arrr)
-// -----object destructuring
-const {firstName:myname,age,...rest}=person;
-console.log(myname);
-console.log(rest);
-// --------------------------
-// objects in arrays
-const users=[{
-    firstName:'Mohammad',
-    lastName : 'Ibrahim',
-    age:20,
-    "college":'SNIST'
-},{
-    firstName:'yoyo',
-    lastName : 'honey',
-    age:47,
-    "college":'SNISTyo'
-}]
-const [{firstName:myname1,age1,college},{college:college1}]=users;
-console.log(myname1)
-console.log(college1)
+function a1({firstName,age}){
+    console.log(firstName)
+    console.log(age)
+}
+a1(person)
+// --------------
+// callback function
+function myf(){
+    console.log('inside myf');
+}
+
+function myf2(myf){
+    console.log('myf2');
+    // myf()
+}
+myf2(myf);
+// ------------------
+// function returning funtion
+function myf() {
+    function hello() {
+        console.log('HELLO');
+    }
+    return hello;
+
+}
+
+console.log(myf()());
