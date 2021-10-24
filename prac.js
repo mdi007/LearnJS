@@ -1,15 +1,17 @@
 "use strict"
-console.log("Hello World");
-{
-console.log(this);
-//      or
-console.log(window);
-}
-var name='hello' //function scope
-console.log(name);
-
-let name1='hello'  //block scope
-console.log(name1);
-const name2='78' // block oriented and cannot be changed further
-name2='hel' //cannot be changed
-console.log(name2);
+var Name='Mohammad Ibrahim'
+console.log(Name.length)
+var Name='     Mohammad Ibrahim          ';
+console.log(Name.length)
+console.log(Name.trim())
+console.log(Name.toUpperCase())
+console.log(Name.toLowerCase())
+console.log(Name.slice(10,20))
+console.log(Name.indexOf('d'));
+console.log(Name.lastIndexOf('i'))
+console.log(Name.includes('k'));
+var Name='Mohammad Ibrahim'
+console.log(Name.split(' '));
+console.log(Name.replace(' ',','));
+console.log(Name.charAt(5));
+console.log(Name.substring(5,11));
