@@ -1,11 +1,29 @@
 "use strict"
-// ternary operator
-let n1=7;
-let n2="7";
-let k=n1===n2?'hello':'bye';
-console.log(k)
-let i=0;
-while(i<3){
-    console.log(i)
-    i++;
+// ----------------ARRAYS-----------
+let mixed=[1,2,3,'strings',null,undefined];
+console.log(mixed)
+console.log(Array.isArray(mixed))
+mixed.push('yoyy')
+mixed.pop()
+mixed.unshift('banana')
+mixed.shift();
+let arr=mixed.slice(0);
+let arr2=[].concat(arr)
+let arr3=[...arr]
+arr.pop()
+console.log(mixed);
+console.log(arr);
+console.log(arr2);
+// --------
+// for of loop
+for(let i of mixed){
+console.log(i);
 }
+// for in loops
+for(let i in mixed){
+    console.log(i)
+}
+// --===
+let [one,two]=mixed;
+console.log(one)
+console.log(two)
