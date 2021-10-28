@@ -1,8 +1,12 @@
 "use strict"
-// optimal chaining
+// function inside object
+
+function personinfo(){
+    console.log(this.firstName,this.address);
+}
 const user={
     firstName:'ibrahim',
-    address:{home:'30-27'}
+    address:{home:'30-27'},
+    about:personinfo
 }
-console.log(user?.firstName);
-console.log(user?.address?.home);
+user.about()
