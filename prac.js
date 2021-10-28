@@ -1,25 +1,19 @@
 "use strict"
-// call,apply,bind
-const user={
-    firstName:'ibrahim',
-    address:{home:'30-27'},
-    about:function(hobby){console.log(` my hobby is ${hobby}`)}
-}
+//note-1
+
 const user2={
     firstName:'mohammad',
-    age:9
+    age:9,
+    about:function (hobby){console.log(` ${this.firstName} my hobby is ${hobby}`)}
 }
-function about1(hobby){console.log(` my hobby is ${hobby}`)}
-// call-basically we can use same function for differrent users
-user.about('playing')
-user.about.call(user2,'dancing')
-// if about is outside of user then :- about.call(user2)
-// ----------------
-                // apply
-about1.apply(user,['yoy','dance'])
-// in apply we can pass array and it takes number of parameters
-// ----------------
-//                  bind 
-// it returns a functions
-const func=about1.bind(user2,'dance');
-func();
+//  dont do this method 
+const myfc=user2.about('yoyo');
+const myfc1=user2.about;
+// is equal to-
+const myfc1_1=function (hobby){console.log(` ${this.firstName} my hobby is ${hobby}`)}
+// myfc1_1('hello')
+// Bcause: this means windows
+
+// instead use 
+const myf=user2.about.bind(user2);
+myf('hw')
